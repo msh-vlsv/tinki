@@ -21,7 +21,7 @@ class DeckAdapter(private val data: ArrayList<String>) : RecyclerView.Adapter<De
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.deck_item, parent, false)
         view.setOnClickListener {
-            view.findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+            view.findNavController().navigate(R.id.action_DeckstFragment_to_CardsFragment)
         }
         return ViewHolder(view)
     }
