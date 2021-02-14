@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     app:layoutDescription="@xml/card_stack_fragment_scene"
     tools:context=".card_stack.CardStackFragment"
-    app:motionDebug="SHOW_ALL">
+    app:motionDebug="NO_DEBUG">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardTwo"
@@ -70,5 +70,48 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/againButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="again"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="8dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/hardButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="hard"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/againButton"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/goodButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="good"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/hardButton"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/easyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="easy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/goodButton"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="8dp"/>
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

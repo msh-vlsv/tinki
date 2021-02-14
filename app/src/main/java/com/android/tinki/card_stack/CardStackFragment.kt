@@ -11,6 +11,7 @@ import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.constraintlayout.motion.widget.TransitionAdapter
 import androidx.lifecycle.Observer
 import com.android.tinki.R
+import com.google.android.material.button.MaterialButton
 
 class CardStackFragment : Fragment() {
 
@@ -39,7 +40,7 @@ class CardStackFragment : Fragment() {
             override fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int) {
                 motionLayout?.post {
                     when (currentId) {
-                        R.id.fail, R.id.easy -> {
+                        R.id.easy, R.id.good, R.id.hard, R.id.again -> {
                             motionLayout?.progress = 0f
                             viewModel.swipe()
                         }
