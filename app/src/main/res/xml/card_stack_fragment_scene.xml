@@ -6,11 +6,7 @@
         android:id="@+id/startToEasy"
         app:constraintSetEnd="@+id/easy"
         app:constraintSetStart="@+id/start"
-        app:duration="250">
-
-        <OnClick
-            app:clickAction="toggle"
-            app:targetId="@+id/easyButton" />
+        app:duration="300">
 
         <OnSwipe
             app:dragDirection="dragUp"
@@ -30,11 +26,7 @@
         android:id="@+id/startToGood"
         app:constraintSetEnd="@+id/good"
         app:constraintSetStart="@+id/start"
-        app:duration="250">
-
-        <OnClick
-            app:clickAction="toggle"
-            app:targetId="@+id/goodButton" />
+        app:duration="300">
 
         <OnSwipe
             app:dragDirection="dragRight"
@@ -54,11 +46,7 @@
         android:id="@+id/startToAgain"
         app:constraintSetEnd="@+id/again"
         app:constraintSetStart="@+id/start"
-        app:duration="250">
-
-        <OnClick
-            app:clickAction="toggle"
-            app:targetId="@+id/againButton" />
+        app:duration="300">
 
         <OnSwipe
             app:dragDirection="dragLeft"
@@ -78,11 +66,7 @@
         android:id="@+id/startToHard"
         app:constraintSetEnd="@+id/hard"
         app:constraintSetStart="@+id/start"
-        app:duration="250">
-
-        <OnClick
-            app:clickAction="toggle"
-            app:targetId="@+id/hardButton" />
+        app:duration="300">
 
         <OnSwipe
             app:dragDirection="dragDown"

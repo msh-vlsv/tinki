@@ -48,6 +48,22 @@ class CardStackFragment : Fragment() {
                 }
             }
         })
+
+        view?.findViewById<MaterialButton>(R.id.againButton)?.setOnClickListener {
+            view?.findViewById<MotionLayout>(R.id.motionLayout)?.transitionToState(R.id.again)
+        }
+
+        view?.findViewById<MaterialButton>(R.id.hardButton)?.setOnClickListener {
+            view?.findViewById<MotionLayout>(R.id.motionLayout)?.transitionToState(R.id.hard)
+        }
+
+        view?.findViewById<MaterialButton>(R.id.goodButton)?.setOnClickListener {
+            view?.findViewById<MotionLayout>(R.id.motionLayout)?.transitionToState(R.id.good)
+        }
+
+        view?.findViewById<MaterialButton>(R.id.easyButton)?.setOnClickListener {
+            view?.findViewById<MotionLayout>(R.id.motionLayout)?.transitionToState(R.id.easy)
+        }
     }
 
     private fun bindCard(model: CardsModel) {
