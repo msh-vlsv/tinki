@@ -6,69 +6,65 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.constraintlayout.motion.widget.TransitionAdapter
 import androidx.lifecycle.Observer
 import com.android.tinki.R
-import com.google.android.material.button.MaterialButton
+import com.android.tinki.databinding.FragmentCardStackBinding
 
 class CardStackFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = CardStackFragment()
-    }
-
-    private lateinit var viewModel: CardStackViewModel
+    private lateinit var cardStackViewModel: CardStackViewModel
+    private var _binding: FragmentCardStackBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.card_stack_fragment, container, false)
+        cardStackViewModel = ViewModelProvider(this).get(CardStackViewModel::class.java)
+        _binding = FragmentCardStackBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(CardStackViewModel::class.java)
-        viewModel
+        cardStackViewModel
             .modelStream
             .observe(viewLifecycleOwner, Observer {
                 bindCard(it)
             })
-
-        view?.findViewById<MotionLayout>(R.id.motionLayout)?.setTransitionListener(object : TransitionAdapter() {
-
+        binding.motionLayout.setTransitionListener(object : TransitionAdapter() {
             override fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int) {
                 motionLayout?.post {
                     when (currentId) {
                         R.id.easy, R.id.good, R.id.hard, R.id.again -> {
                             motionLayout?.progress = 0f
-                            viewModel.swipe()
+                            cardStackViewModel.swipe()
                         }
                     }
                 }
             }
         })
 
-        view?.findViewById<MaterialButton>(R.id.againButton)?.setOnClickListener {
-            view?.findViewById<MotionLayout>(R.id.motionLayout)?.transitionToState(R.id.again)
+        binding.againButton.setOnClickListener {
+            binding.motionLayout.transitionToState(R.id.again)
         }
 
-        view?.findViewById<MaterialButton>(R.id.hardButton)?.setOnClickListener {
-            view?.findViewById<MotionLayout>(R.id.motionLayout)?.transitionToState(R.id.hard)
+        binding.hardButton.setOnClickListener {
+            binding.motionLayout.transitionToState(R.id.hard)
         }
 
-        view?.findViewById<MaterialButton>(R.id.goodButton)?.setOnClickListener {
-            view?.findViewById<MotionLayout>(R.id.motionLayout)?.transitionToState(R.id.good)
+        binding.goodButton.setOnClickListener {
+            binding.motionLayout.transitionToState(R.id.good)
         }
 
-        view?.findViewById<MaterialButton>(R.id.easyButton)?.setOnClickListener {
-            view?.findViewById<MotionLayout>(R.id.motionLayout)?.transitionToState(R.id.easy)
+        binding.easyButton.setOnClickListener {
+            binding.motionLayout.transitionToState(R.id.easy)
         }
     }
 
     private fun bindCard(model: CardsModel) {
-        view?.findViewById<TextView>(R.id.cardOneName)?.text = model.cardTop.name
-        view?.findViewById<TextView>(R.id.cardTwoName)?.text = model.cardBottom.name
+        binding.cardOneName.text = model.cardTop.name
+        binding.cardTwoName.text = model.cardBottom.name
     }
 
 }
