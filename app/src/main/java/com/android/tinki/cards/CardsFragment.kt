@@ -3,21 +3,13 @@ package com.android.tinki.cards
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
-import android.widget.Button
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.tinki.R
 import com.android.tinki.databinding.FragmentCardsBinding
-import com.android.tinki.databinding.FragmentDecksBinding
-import com.android.tinki.decks.DeckAdapter
-import com.android.tinki.decks.DecksViewModel
 import com.android.tinki.ui.cards.CardsAdapter
 import com.android.tinki.ui.cards.CardsViewModel
-import com.google.android.material.snackbar.Snackbar
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.

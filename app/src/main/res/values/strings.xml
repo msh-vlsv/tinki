@@ -11,4 +11,9 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="start_learning">Start Learning</string>
     <string name="action_edit">Edit</string>
+
+    <string name="easy">Easy</string>
+    <string name="good">Good</string>
+    <string name="hard">Hard</string>
+    <string name="again">Again</string>
 </resources>
