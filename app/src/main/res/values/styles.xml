@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="Card">
+        <item name="android:layout_width">@dimen/card_width</item>
+        <item name="android:layout_height">@dimen/card_height</item>
+        <item name="android:outlineSpotShadowColor">@android:color/transparent</item>
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+    </style>
+
+    <style name="CardStackButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/bottom_button_margin</item>
+        <item name="android:elevation">@dimen/button_elevation</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="CardStackStamp">
+        <item name="android:layout_width">@dimen/stamp_width</item>
+        <item name="android:layout_height">@dimen/stamp_height</item>
+        <item name="android:textSize">@dimen/stamp_text_size</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:elevation">@dimen/stamp_elevation</item>
+    </style>
+
+    <style name="SeparatorLine">
+
+    </style>
+</resources>
