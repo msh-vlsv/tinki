@@ -30,7 +30,7 @@ class CardStackFragment : Fragment() {
         cardStackViewModel
             .modelStream
             .observe(viewLifecycleOwner, Observer {
-                bindCard(it)
+                bindCards(it)
             })
         binding.motionLayout.setTransitionListener(object : TransitionAdapter() {
             override fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int) {
@@ -38,7 +38,13 @@ class CardStackFragment : Fragment() {
                     when (currentId) {
                         R.id.easy, R.id.good, R.id.hard, R.id.again -> {
                             motionLayout?.progress = 0f
+                            binding.textSeparator.visibility = View.INVISIBLE
+                            binding.cardOneBackText.visibility = View.INVISIBLE
+                            motionLayout?.transitionToState(R.id.start)
                             cardStackViewModel.swipe()
+                        }
+                        R.id.flip -> {
+                            binding.cardOne.isClickable = false
                         }
                     }
                 }
@@ -62,9 +68,10 @@ class CardStackFragment : Fragment() {
         }
     }
 
-    private fun bindCard(model: CardsModel) {
-        binding.cardOneName.text = model.cardTop.name
-        binding.cardTwoName.text = model.cardBottom.name
+    private fun bindCards(model: CardsModel) {
+        binding.cardOneFrontText.text = model.cardTop.front
+        binding.cardOneBackText.text = model.cardTop.back
+        binding.cardTwoFrontText.text = model.cardBottom.front
     }
 
 }

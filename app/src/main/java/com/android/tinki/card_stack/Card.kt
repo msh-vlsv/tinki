@@ -1,5 +1,6 @@
 package com.android.tinki.card_stack
 
 data class Card(
-        val name: String
+        val front: String,
+        val back: String
 )

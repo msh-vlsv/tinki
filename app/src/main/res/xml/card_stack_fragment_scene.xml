@@ -2,10 +2,24 @@
 <MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <Transition
-        android:id="@+id/startToEasy"
-        app:constraintSetEnd="@+id/easy"
+    <Transition android:id="@+id/startToFlip"
         app:constraintSetStart="@+id/start"
+        app:constraintSetEnd="@+id/flip">
+        <OnClick
+            app:clickAction="transitionToEnd"
+            app:targetId="@id/cardOne" />
+    </Transition>
+
+    <Transition android:id="@+id/flipToStart"
+        app:constraintSetStart="@+id/flip"
+        app:constraintSetEnd="@+id/start"
+        app:duration="100">
+    </Transition>
+
+    <Transition
+        android:id="@+id/flipToEasy"
+        app:constraintSetEnd="@+id/easy"
+        app:constraintSetStart="@+id/flip"
         app:duration="300">
 
         <OnSwipe
@@ -16,9 +30,9 @@
     </Transition>
 
     <Transition
-        android:id="@+id/startToGood"
+        android:id="@+id/flipToGood"
         app:constraintSetEnd="@+id/good"
-        app:constraintSetStart="@+id/start"
+        app:constraintSetStart="@+id/flip"
         app:duration="300">
 
         <OnSwipe
@@ -29,9 +43,9 @@
     </Transition>
 
     <Transition
-        android:id="@+id/startToAgain"
+        android:id="@+id/flipToAgain"
         app:constraintSetEnd="@+id/again"
-        app:constraintSetStart="@+id/start"
+        app:constraintSetStart="@+id/flip"
         app:duration="300">
 
         <OnSwipe
@@ -42,9 +56,9 @@
     </Transition>
 
     <Transition
-        android:id="@+id/startToHard"
+        android:id="@+id/flipToHard"
         app:constraintSetEnd="@+id/hard"
-        app:constraintSetStart="@+id/start"
+        app:constraintSetStart="@+id/flip"
         app:duration="300">
 
         <OnSwipe
@@ -57,7 +71,6 @@
 <!--=======================================================================================-->
 
     <ConstraintSet android:id="@+id/start">
-
         <Constraint android:id="@id/cardOne" />
 
         <Constraint android:id="@id/cardTwo">
@@ -67,25 +80,109 @@
         </Constraint>
 
         <Constraint android:id="@+id/easyStamp">
-            <PropertySet android:alpha="0"/>
+            <PropertySet android:visibility="invisible" />
         </Constraint>
 
         <Constraint android:id="@+id/goodStamp">
-            <PropertySet android:alpha="0"/>
+            <PropertySet android:visibility="invisible" />
         </Constraint>
 
         <Constraint android:id="@+id/hardStamp">
-            <PropertySet android:alpha="0"/>
+            <PropertySet android:visibility="invisible" />
         </Constraint>
 
         <Constraint android:id="@+id/againStamp">
-            <PropertySet android:alpha="0"/>
+            <PropertySet android:visibility="invisible" />
         </Constraint>
 
+        <Constraint android:id="@+id/cardOneFrontText">
+            <PropertySet android:visibility="visible" />
+        </Constraint>
+
+        <Constraint android:id="@+id/textSeparator">
+            <PropertySet android:visibility="invisible" />
+        </Constraint>
+
+        <Constraint android:id="@+id/cardOneBackText">
+            <PropertySet android:visibility="invisible" />
+        </Constraint>
+
+        <Constraint android:id="@+id/againButton">
+            <PropertySet android:visibility="invisible" />
+        </Constraint>
+
+        <Constraint android:id="@+id/hardButton">
+            <PropertySet android:visibility="invisible" />
+        </Constraint>
+
+        <Constraint android:id="@+id/goodButton">
+            <PropertySet android:visibility="invisible" />
+        </Constraint>
+
+        <Constraint android:id="@+id/easyButton">
+            <PropertySet android:visibility="invisible" />
+        </Constraint>
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/flip">
+        <Constraint android:id="@id/cardOne" />
+
+        <Constraint android:id="@id/cardTwo">
+            <Transform
+                android:scaleX="0.90"
+                android:scaleY="0.90" />
+        </Constraint>
+
+        <Constraint android:id="@+id/easyStamp">
+            <PropertySet android:visibility="invisible" />
+        </Constraint>
+
+        <Constraint android:id="@+id/goodStamp">
+            <PropertySet android:visibility="invisible" />
+        </Constraint>
+
+        <Constraint android:id="@+id/hardStamp">
+            <PropertySet android:visibility="invisible" />
+        </Constraint>
+
+        <Constraint android:id="@+id/againStamp">
+            <PropertySet android:visibility="invisible" />
+        </Constraint>
+
+        <Constraint android:id="@+id/cardOneFrontText">
+            <PropertySet android:visibility="visible" />
+        </Constraint>
+
+        <Constraint android:id="@+id/textSeparator">
+            <PropertySet
+                android:visibility="visible"
+                app:visibilityMode="ignore"/>
+        </Constraint>
+
+        <Constraint android:id="@+id/cardOneBackText">
+            <PropertySet
+                android:visibility="visible"
+                app:visibilityMode="ignore"/>
+        </Constraint>
+
+        <Constraint android:id="@+id/againButton">
+            <PropertySet android:visibility="visible" />
+        </Constraint>
+
+        <Constraint android:id="@+id/hardButton">
+            <PropertySet android:visibility="visible" />
+        </Constraint>
+
+        <Constraint android:id="@+id/goodButton">
+            <PropertySet android:visibility="visible" />
+        </Constraint>
+
+        <Constraint android:id="@+id/easyButton">
+            <PropertySet android:visibility="visible" />
+        </Constraint>
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/easy">
-
         <Constraint android:id="@id/cardOne">
             <Layout
                 android:layout_width="@dimen/card_width"
@@ -115,7 +212,6 @@
         <Constraint android:id="@+id/againStamp">
             <PropertySet android:alpha="0"/>
         </Constraint>
-
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/good">
@@ -148,7 +244,6 @@
         <Constraint android:id="@+id/againStamp">
             <PropertySet android:alpha="0"/>
         </Constraint>
-
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/again">
@@ -181,7 +276,6 @@
         <Constraint android:id="@+id/againStamp">
             <PropertySet android:alpha="5"/>
         </Constraint>
-
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/hard">
@@ -214,9 +308,6 @@
         <Constraint android:id="@+id/againStamp">
             <PropertySet android:alpha="0"/>
         </Constraint>
-
     </ConstraintSet>
-
-
 
 </MotionScene>

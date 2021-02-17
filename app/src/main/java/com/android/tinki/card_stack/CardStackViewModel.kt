@@ -12,26 +12,26 @@ class CardStackViewModel : ViewModel() {
         get() = stream
 
     private val data = arrayListOf(
-            Card("card 1"),
-            Card("card 2"),
-            Card("card 3"),
-            Card("card 4"),
-            Card("card 5"),
-            Card("card 6"),
-            Card("card 7"),
-            Card("card 8"),
-            Card("card 9"),
-            Card("card 10"),
-            Card("card 11"),
-            Card("card 12"),
-            Card("card 13"),
-            Card("card 14"),
-            Card("card 15"),
-            Card("card 16"),
-            Card("card 17"),
-            Card("card 18"),
-            Card("card 19"),
-            Card("card 20")
+            Card("card 1 front", "card 1 back"),
+            Card("card 2 front", "card 2 back"),
+            Card("card 3 front", "card 3 back"),
+            Card("card 4 front", "card 4 back"),
+            Card("card 5 front", "card 5 back"),
+            Card("card 6 front", "card 6 back"),
+            Card("card 7 front", "card 7 back"),
+            Card("card 8 front", "card 8 back"),
+            Card("card 9 front", "card 9 back"),
+            Card("card 10 front", "card 10 back"),
+            Card("card 11 front", "card 11 back"),
+            Card("card 12 front", "card 12 back"),
+            Card("card 13 front", "card 13 back"),
+            Card("card 14 front", "card 14 back"),
+            Card("card 15 front", "card 15 back"),
+            Card("card 16 front", "card 16 back"),
+            Card("card 17 front", "card 17 back"),
+            Card("card 18 front", "card 18 back"),
+            Card("card 19 front", "card 19 back"),
+            Card("card 20 front", "card 20 back")
     )
 
     var currentIndex = 0
